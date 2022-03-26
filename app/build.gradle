@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdk 31
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    defaultConfig {
+        applicationId "io.raveerocks.sleeptracker"
+        minSdk 19
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    kapt "androidx.room:room-compiler:$version_room"
+    implementation "androidx.core:core-ktx:$version_core"
+    implementation "androidx.appcompat:appcompat:$version_appcompat"
+    implementation "com.google.android.material:material:$version_material"
+    implementation "androidx.constraintlayout:constraintlayout:$version_constraintlayout"
+    implementation "androidx.room:room-runtime:$version_room"
+    implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
+    implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
+    testImplementation "junit:junit:$version_junit"
+    androidTestImplementation "androidx.test.ext:junit:$version_android_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$version_espresso_core"
+}
